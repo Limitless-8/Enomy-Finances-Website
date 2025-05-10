@@ -1,0 +1,327 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #ffffff);
+    color: #333;
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00796b;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Form & Sections */
+.application-form, .conversion, .investment, .container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Form Inputs */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    background-color: #00796b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #004d40;
+}
+
+/* Result Outputs */
+#conversion-result, #investment-result {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #00796b;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #00796b;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #004d40;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .application-form, .conversion, .investment, .container {
+        padding: 20px;
+        width: 95%;
+    }
+}
+
+
+#conversion-result,
+#investment-result {
+    font-size: 1.1em;
+    margin-top: 20px;
+    text-align: left;
+    padding: 15px;
+    background-color: #f1f8e9;
+    border: 1px solid #c5e1a5;
+    border-radius: 8px;
+    color: #33691e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.investment-block {
+    margin-bottom: 20px;
+}
+
+.investment-block h3 {
+    color: #004d40;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.investment-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.investment-block li {
+    margin-bottom: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+table th {
+    background-color: #00796b;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #e0f7fa;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#admin-table {
+    margin: auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#admin-table {
+    margin: auto;
+    width: 90%;
+    max-width: 1000px;
+}
+
+/* 👇 Add this after those */
+table {
+    table-layout: auto;
+    word-wrap: break-word;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #004d40;
+}
+
+canvas {
+    margin: 20px auto;
+    display: block;
+    max-width: 100%;
+}
+
+.application-form {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.application-form p, .application-form ul {
+    margin-bottom: 10px;
+}
+.application-form h2 {
+    color: #00796b;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    resize: vertical;
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    cursor: pointer;
+    color: #00796b;
+    margin: 15px 0;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #004d40;
+}
+
+.faq-answer {
+    display: none;
+    padding-left: 10px;
+    border-left: 3px solid #00796b;
+    margin-bottom: 10px;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #00796b;
+    color: white;
+    padding: 20px;
+    width: 280px;
+    height: 140px;
+    text-align: left;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    margin-bottom: 8px;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card p {
+    font-size: 0.95em;
+    color: #f1f1f1;
+}
+
+.logout-button {
+    background-color: #00796b;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #004d40;
+}

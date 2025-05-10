@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plan Recommendation – Enomy Finances</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Plan Recommendation Tool</h1>
+        <p>Find the best investment plan based on your inputs</p>
+    </header>
+
+    <div class="application-form" style="max-width: 600px;">
+        <label for="lump">Initial Investment (£):</label>
+        <input type="number" id="lump" required>
+
+        <label for="monthly">Monthly Contribution (£):</label>
+        <input type="number" id="monthly" required>
+
+        <label for="risk">Risk Preference:</label>
+        <select id="risk" required>
+            <option value="" disabled selected>Select risk level</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <label for="duration">Investment Duration (years):</label>
+        <input type="number" id="duration" required>
+
+        <button onclick="recommendPlan()">Get Recommendation</button>
+
+        <div id="recommendation-result" style="margin-top: 20px;"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="Enomy Finances 1.0.html">← Back to Home</a>
+    </div>
+
+    <script src="recommendation.js"></script>
+</body>
+</html>

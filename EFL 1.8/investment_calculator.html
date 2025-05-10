@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Investment Calculator – Enomy Finances</title>
+</head>
+<body>
+    <header>
+        <h1>Investment Calculator</h1>
+        <p>Estimate potential returns based on your inputs</p>
+    </header>
+
+    <main>
+        <section class="investment">
+            <h2>Investment Calculator</h2>
+            <label for="investment-amount">Initial Investment (£):</label>
+            <input type="number" id="investment-amount" placeholder="Enter amount">
+
+            <label for="monthly">Monthly Investment (£):</label>
+            <input type="number" id="monthly" placeholder="Enter monthly amount">
+
+            <label for="investment-plan">Choose Plan:</label>
+            <select id="investment-plan">
+                <option value="" disabled selected>Select a plan</option>
+                <option value="basic">Basic Savings Plan</option>
+                <option value="plus">Savings Plan Plus</option>
+                <option value="stocks">Managed Stock Investments</option>
+            </select>
+
+            <button id="calculate-returns">Calculate Returns</button>
+            <p id="investment-result"></p>
+        </section>
+    </main>
+
+    <script src="Script.js"></script>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="user_dashboard.html" class="logout-button">← Back to Dashboard</a>
+        <a href="login.html" class="logout-button">🔒 Log Out</a>
+    </div>
+</body>
+</html>

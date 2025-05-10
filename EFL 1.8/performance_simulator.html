@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Investment Performance Simulator – Enomy Finances</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Investment Performance Simulator</h1>
+        <p>Visualise how your investment could grow over time</p>
+    </header>
+
+    <main>
+        <div class="application-form">
+            <label for="sim-initial">Initial Investment (£):</label>
+            <input type="number" id="sim-initial" placeholder="e.g. 1000" required>
+
+            <label for="sim-monthly">Monthly Contribution (£):</label>
+            <input type="number" id="sim-monthly" placeholder="e.g. 100" required>
+
+            <label for="sim-plan">Select Plan:</label>
+            <select id="sim-plan" required>
+                <option value="" disabled selected>Select a plan</option>
+                <option value="basic">Basic Savings Plan</option>
+                <option value="plus">Savings Plan Plus</option>
+                <option value="stocks">Managed Stock Investments</option>
+            </select>
+
+            <label for="sim-duration">Duration (years):</label>
+            <input type="number" id="sim-duration" placeholder="e.g. 10" min="1" max="50" required>
+
+            <button id="simulate">Generate Projection</button>
+        </div>
+
+        <div id="sim-error" class="application-form" style="color: #b71c1c; font-weight: bold;"></div>
+
+        <div class="application-form" style="max-width: 1000px; margin-top: 40px;">
+            <canvas id="performanceChart" width="900" height="450"></canvas>
+        </div>
+
+        <div id="projection-summary" class="application-form" style="max-width: 800px;"></div>
+    </main>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="user_dashboard.html" class="logout-button">← Back to Dashboard</a>
+        <a href="login.html" class="logout-button">🔒 Log Out</a>
+    </div>
+
+    <script src="performance_simulator.js"></script>
+</body>
+</html>

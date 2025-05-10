@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>Currency Converter – Enomy Finances</title>
+</head>
+<body>
+    <header>
+        <h1>Currency Conversion</h1>
+        <p>Convert between different currencies instantly</p>
+    </header>
+
+    <main>
+        <section class="conversion">
+            <h2>Currency Conversion Rates</h2>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" placeholder="Enter Amount">
+
+            <label for="from">From:</label>
+            <select id="from">
+                <option value="" disabled selected>Choose Currency</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+                <option value="BRL">BRL</option>
+                <option value="JPY">JPY</option>
+                <option value="TRY">TRY</option>
+            </select>
+
+            <label for="to">To:</label>
+            <select id="to">
+                <option value="" disabled selected>Choose Currency</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+                <option value="EUR">EUR</option>
+                <option value="BRL">BRL</option>
+                <option value="JPY">JPY</option>
+                <option value="TRY">TRY</option>
+            </select>
+
+            <button id="convert">Convert</button>
+            <p id="conversion-result"></p>
+        </section>
+    </main>
+
+    <script src="Script.js"></script>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="user_dashboard.html" class="logout-button">← Back to Dashboard</a>
+        <a href="login.html" class="logout-button">🔒 Log Out</a>
+    </div>
+</body>
+</html>
