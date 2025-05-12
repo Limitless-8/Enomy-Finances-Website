@@ -187,7 +187,7 @@ def update_rates():
 # Default route
 @app.route('/')
 def index():
-    return app.send_static_file('login.html')
+    return app.send_static_file('index.html')
 
 # Run the Flask app
 if __name__ == '__main__':
