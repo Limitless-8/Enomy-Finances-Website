@@ -17,9 +17,19 @@ async function loadRates() {
 async function submitRates() {
     const inputs = document.querySelectorAll("input[type='number']");
     const updatedRates = {};
+
     inputs.forEach(input => {
         updatedRates[input.id] = parseFloat(input.value);
     });
+
+    // ✅ Validate all rates are positive numbers
+    for (const key in updatedRates) {
+        const rate = updatedRates[key];
+        if (isNaN(rate) || rate <= 0) {
+            alert(`Invalid rate for ${key}. All exchange rates must be positive numbers.`);
+            return;
+        }
+    }
 
     const res = await fetch("/update_rates", {
         method: "POST",

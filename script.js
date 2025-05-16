@@ -12,18 +12,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const convertButton = document.getElementById("convert");
     if (convertButton) {
         convertButton.addEventListener("click", function () {
-            const amount = parseFloat(document.getElementById("amount").value);
+            const amountInput = document.getElementById("amount").value;
+            const amount = parseFloat(amountInput);
             const from = document.getElementById("from").value;
             const to = document.getElementById("to").value;
             const resultBox = document.getElementById("conversion-result");
-    
+
+            // Added validation for non-numeric and out-of-range input
             if (isNaN(amount) || amount < 300 || amount > 5000) {
-                alert("Please enter an amount between 300 and 5000.");
+                alert("Please enter a valid amount between 300 and 5000.");
                 return;
             }
-    
+
             const rawConverted = (amount / exchangeRates[from]) * exchangeRates[to];
-    
+
             // Determine fee %
             let feePercent = 0.035; // default for ≤ 500
             if (amount > 2500) {
@@ -33,13 +35,13 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (amount > 500) {
                 feePercent = 0.027;
             }
-    
+
             // Fee in USD
             const feeInUSD = (amount / exchangeRates[from]) * exchangeRates["USD"] * feePercent;
-    
+
             // Final amount after subtracting fee
             const finalAmount = rawConverted - feeInUSD;
-    
+
             resultBox.innerHTML = `
                 <strong>Converted Amount:</strong> $${rawConverted.toFixed(2)}<br>
                 <strong>Transaction Fee (${(feePercent * 100).toFixed(1)}%):</strong> $${feeInUSD.toFixed(2)}<br>
@@ -47,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
         });
     }
-    
 
     // --- Investment Calculator ---
     const calcButton = document.getElementById("calculate-returns");
@@ -56,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const initial = parseFloat(document.getElementById("investment-amount").value);
             const monthly = parseFloat(document.getElementById("monthly").value);
             const plan = document.getElementById("investment-plan").value;
-
             const resultBox = document.getElementById("investment-result");
 
             if (isNaN(initial) || isNaN(monthly) || !plan) {

@@ -1,15 +1,23 @@
-//HTML will feed information to JavaScript which will then feed the information to the Python Flask backend to update the database
-//Asynchronous function allows the code to run in the background and not block the main thread
+// HTML will feed information to JavaScript which will then feed the information to the Python Flask backend to update the database
+// Asynchronous function allows the code to run in the background and not block the main thread
 
 async function submitApplication() {
     // Correctly reference form element IDs (case-sensitive)
-    const name = document.getElementById("Name").value;
-    const email = document.getElementById("Email").value;
-    const contact = document.getElementById("Phone").value;
+    const name = document.getElementById("Name").value.trim();
+    const email = document.getElementById("Email").value.trim();
+    const contact = document.getElementById("Phone").value.trim();
     const plan = document.getElementById("Plan").value;
 
+    // Basic required field validation
     if (!name || !email || !contact || !plan) {
         alert("Please fill in all fields before submitting.");
+        return;
+    }
+
+    // Regex for validating phone number (at least 7 digits, allows +, spaces, (), -)
+    const phoneRegex = /^[0-9\s()+-]{7,}$/;
+    if (!phoneRegex.test(contact)) {
+        alert("Please enter a valid phone number.");
         return;
     }
 

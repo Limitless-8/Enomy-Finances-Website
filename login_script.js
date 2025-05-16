@@ -1,25 +1,41 @@
 // Add event listener to the login form
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+document.getElementById("loginForm").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent default form submission
 
-    // Get user input values
-    var username = document.getElementById("username").value.trim();
-    var password = document.getElementById("password").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    // Basic validation for empty fields
-    if (username === "" || password === "") {
+    // Basic validation
+    if (!username || !password) {
         alert("Please fill in both fields.");
         return;
     }
 
-    // Check login credentials
-    if (username === "admin" && password === "admin") {
-        alert("Admin login successful!");
-        window.location.href = "admin.html"; // Redirect to admin dashboard
-    } else if (username === "user" && password === "user") {
-        alert("User login successful!");
-        window.location.href = "user_dashboard.html"; // Redirect to new user dashboard
-    } else {
-        alert("Invalid username or password.");
+    try {
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("Login successful!");
+
+            // ✅ Set login session in localStorage
+            if (username === "admin") {
+                localStorage.setItem("loggedInUser", "admin");
+                window.location.href = "admin.html";
+            } else {
+                localStorage.setItem("loggedInUser", "user");
+                window.location.href = "user_dashboard.html";
+            }
+        } else {
+            alert(result.message || "Login failed.");
+        }
+    } catch (error) {
+        console.error("Login error:", error);
+        alert("An error occurred. Please try again.");
     }
 });

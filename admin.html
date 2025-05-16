@@ -3,6 +3,22 @@
 <head>
     <title>Admin Dashboard – Enomy Finances</title>
     <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ Session check & back button protection -->
+    <script>
+        // Redirect if not logged in
+        if (!localStorage.getItem("loggedInUser")) {
+            alert("Access denied. Please log in.");
+            window.location.href = "index.html";
+        }
+
+        // Force page reload if loaded from cache (e.g. back button)
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -27,10 +43,22 @@
             <h2>💱 Update Currency Rates</h2>
             <p>Modify live conversion rates used across the platform</p>
         </a>        
+        <a href="user_management.html" class="card">
+            <h2>👤 Manage Users</h2>
+            <p>View all registered accounts</p>
+        </a>        
     </div>
 
+    <!-- ✅ Logout Button -->
     <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="logout-button">🔒 Log Out</a>
-    </div>    
+        <a href="#" onclick="logout()" class="logout-button">🔒 Log Out</a>
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
